@@ -1,5 +1,5 @@
 
-export type User = {
+export type Comments = {
     text: string;
     postDate: Date;
     rating: number
