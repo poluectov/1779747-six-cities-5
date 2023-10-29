@@ -6,4 +6,3 @@ export type FacilitiesType =
     | 'Washer'
     | 'Towels'
     | 'Fridge'
-  

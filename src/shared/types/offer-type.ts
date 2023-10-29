@@ -1,4 +1,4 @@
-export  type OfferType =
+export type OfferType =
     | 'apartment'
     | 'house'
     | 'room'

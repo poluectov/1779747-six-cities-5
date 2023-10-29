@@ -11,22 +11,22 @@ export class TSVFileReader implements FileReader {
 
   public read(): void {
     try {
-    this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
-    console.log(this.rawData);
+      this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
+      console.log(this.rawData);
     }catch (error) {
-        console.error(`File was not read ${this.filename}`);
-        if (error instanceof Error) {
-          console.error(error.message);
-        }
+      console.error(`File was not read ${this.filename}`);
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    }
   }
-}
 
   public toArray(): Offer[] {
     return this.rawData
       .split('\n')
       .filter((row) => row.trim().length > 0)
       .map((line) => line.split('\t'))
-      .map(([title, description, postDate, city, previewPhoto, photos, 
+      .map(([title, description, postDate, city, previewPhoto, photos,
         isPremium, isFavorite, rating, type, rooms, quests, price, facilities, firstname, email, avatar, password, typeUser,
         comments, coordinates]) => ({
         title,
