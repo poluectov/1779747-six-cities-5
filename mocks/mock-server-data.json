@@ -1,0 +1,98 @@
+{
+    "api": {
+      "titles": [
+        "Апартаменты в центре Брюсселя",
+        "Просторная квартира в Париже",
+        "Квартира с уютным эркером в исторической части города",
+        "Номер с прекрасным видом на парк",
+        "Уютная комната в самом тусовочном районе",
+        "Дом с прекрасным видом в 10 минутах от города"
+      ],
+      "descriptions": [
+        "Уютные апартаменты в доме бизнес класса",
+        "Просторная, светлая квартира в центре города",
+        "Светлая, комфортная квартира в историческом центре города",
+        "Номер в отеле премиум класса",
+        "Комфортная комната в части города которая никогда не спит",
+        "Прекрасный, просторный дом со всеми удобствами, недалеко от центра города"
+      ],
+      "citys": [
+        "Paris",
+        "Cologne",
+        "Brussels",
+        "Amsterdam",
+        "Hamburg",
+        "Dusseldorf"
+      ],
+      "previewPhotos": [
+        "previewPhoto_1.jpg",
+        "previewPhoto_2.jpg",
+        "previewPhoto_3.jpg",
+        "previewPhoto_4.jpg",
+        "previewPhoto_5.jpg",
+        "previewPhoto_6.jpg"
+      ],
+      "photos": [
+        "photos_1.jpg",
+        "photos_2.jpg",
+        "photos_3.jpg",
+        "photos_4.jpg",
+        "photos_5.jpg",
+        "photos_6.jpg"
+      ],
+      "types": [
+        "apartment",
+        "house",
+        "room",
+        "hotel"
+      ],
+      "facilities": [
+        "Breakfast",
+        "Air conditioning",
+        "LLaptop friendly workspace",
+        "Baby seat",
+        "Washer",
+        "Towels",
+        "Fridge"
+      ],
+      "users": [
+        "Иван Иванов",
+        "Олег Сидоров",
+        "Пьер Безухов",
+        "Роланд Дискейн",
+        "Холи Гибни",
+        "Джек Торренс",
+        "Антон Городецкий",
+        "Борис Гесер",
+        "Рокки Бальбоа",
+        "Джон Смит"
+      ],
+      "emails": [
+        "snow@pisem.local",
+        "president@dka.local",
+        "fish@big.local",
+        "test@pisem.local",
+        "freedom@pisem.local",
+        "rolan@pochta.local",
+        "author@mir.local",
+        "test@lost.loca",
+        "kujo-fan@story.local"
+      ],
+      "passwords": [
+        "password_1",
+        "password_2",
+        "password_3",
+        "password_4",
+        "password_5",
+        "password_6"
+      ],
+      "avatars": [
+        "user.jpg",
+        "photo.jpg",
+        "awesome-avatar.jpg",
+        "roland.jpg",
+        "smite.jpg",
+        "coffee.jpg"
+      ]
+    }
+  }
