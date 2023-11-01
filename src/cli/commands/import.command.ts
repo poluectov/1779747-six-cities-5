@@ -20,7 +20,7 @@ export class ImportCommand implements Command {
     const [filename] = parameters;
     const fileReader = new TSVFileReader(filename.trim());
 
-    
+
     fileReader.on('line', this.onImportedLine);
     fileReader.on('end', this.onCompleteImport);
 
