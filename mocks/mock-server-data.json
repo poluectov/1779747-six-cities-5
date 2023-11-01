@@ -100,7 +100,7 @@
         "smite.jpg",
         "coffee.jpg"
       ],
-      "typeUser": [
+      "userType": [
         "обычный",
         "pro"
       ]
