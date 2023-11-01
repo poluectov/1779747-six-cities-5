@@ -15,7 +15,7 @@ export type Offer = {
     rating: number;
     type: OfferType;
     rooms: number;
-    quests: number;
+    guests: number;
     price: number;
     facilities: FacilitiesType[];
     user: User;
