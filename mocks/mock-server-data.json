@@ -16,7 +16,7 @@
         "Комфортная комната в части города которая никогда не спит",
         "Прекрасный, просторный дом со всеми удобствами, недалеко от центра города"
       ],
-      "citys": [
+      "cities": [
         "Paris",
         "Cologne",
         "Brussels",
@@ -38,7 +38,13 @@
         "photos_3.jpg",
         "photos_4.jpg",
         "photos_5.jpg",
-        "photos_6.jpg"
+        "photos_6.jpg",
+        "photos_7.jpg",
+        "photos_8.jpg",
+        "photos_9.jpg",
+        "photos_10.jpg",
+        "photos_11.jpg",
+        "photos_12.jpg"
       ],
       "types": [
         "apartment",
@@ -49,7 +55,7 @@
       "facilities": [
         "Breakfast",
         "Air conditioning",
-        "LLaptop friendly workspace",
+        "Laptop friendly workspace",
         "Baby seat",
         "Washer",
         "Towels",
@@ -93,6 +99,10 @@
         "roland.jpg",
         "smite.jpg",
         "coffee.jpg"
+      ],
+      "typeUser": [
+        "обычный",
+        "pro"
       ]
     }
   }
