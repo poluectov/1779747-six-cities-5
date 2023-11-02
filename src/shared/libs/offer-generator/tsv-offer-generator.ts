@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { OfferGenerator } from './offer-generator.interface.js';
-import { MockServerData } from '../../types/index.js';
+import { MockServerData, COORDINATES } from '../../types/index.js';
 import { generateRandomValue, getRandomItem, getRandomItems } from '../../helpers/index.js';
 
 const MIN_PRICE = 100;
@@ -36,12 +36,13 @@ export class TSVOfferGenerator implements OfferGenerator {
     const password = getRandomItem(this.mockData.passwords);
     const userType = getRandomItem<string>(this.mockData.userType);
     const comments = generateRandomValue(0, 20);
+    const coordinates = `${COORDINATES[city].longitude};${COORDINATES[city].latitude}`
 
     return [
       title, description, postDate, city, previewPhoto,
       photo, isPremium, isFavorite, ratio,
       type, rooms, guests, price, facilities,
-      author, email, avatar, password, userType, comments
+      author, email, avatar, password, userType, comments, coordinates
     ].join('\t');
   }
 }
