@@ -36,7 +36,7 @@ export class TSVOfferGenerator implements OfferGenerator {
     const password = getRandomItem(this.mockData.passwords);
     const userType = getRandomItem<string>(this.mockData.userType);
     const comments = generateRandomValue(0, 20);
-    const coordinates = `${COORDINATES[city].longitude};${COORDINATES[city].latitude}`
+    const coordinates = `${COORDINATES[city].longitude};${COORDINATES[city].latitude}`;
 
     return [
       title, description, postDate, city, previewPhoto,
