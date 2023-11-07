@@ -19,12 +19,12 @@ export class RestConfig implements Config<RestSchema> {
     }
 
     configRestSchema.load({});
-    
+
     try {
-        configRestSchema.validate({ allowed: 'strict', output: this.logger.info });
-      } catch (e) {
-        this.logger.error('RestConfig', e as Error, []);
-      }
+      configRestSchema.validate({ allowed: 'strict', output: this.logger.info });
+    } catch (e) {
+      this.logger.error('RestConfig', e as Error, []);
+    }
 
     this.config = configRestSchema.getProperties();
     this.logger.info('.env file found and successfully parsed!');

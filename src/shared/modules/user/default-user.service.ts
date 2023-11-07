@@ -9,10 +9,10 @@ import { Logger } from '../../libs/logger/index.js';
 
 @injectable()
 export class DefaultUserService implements UserService {
-    constructor(
+  constructor(
         @inject(Component.Logger) private readonly logger: Logger,
         @inject(Component.UserModel) private readonly userModel: types.ModelType<UserEntity>
-      ) {}
+  ) {}
 
   public async create(dto: CreateUserDto, salt: string): Promise<DocumentType<UserEntity>> {
     const user = new UserEntity(dto);

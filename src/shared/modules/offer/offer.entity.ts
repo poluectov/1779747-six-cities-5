@@ -22,7 +22,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public postDate!: Date;
 
   @prop()
-  city!: CityType;
+    city!: CityType;
 
   @prop()
   public previewPhoto!: string;
@@ -47,7 +47,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
 
   @prop()
   public guests!: number;
-  
+
 
   @prop()
   public price!: number;
