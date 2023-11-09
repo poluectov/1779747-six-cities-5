@@ -4,6 +4,7 @@ import { Config, RestSchema } from '../shared/libs/config/index.js';
 import { Component } from '../shared/types/index.js';
 import { DatabaseClient } from '../shared/libs/database-client/index.js';
 import { getMongoURI } from '../shared/helpers/index.js';
+import { UserModel } from '../shared/modules/user/user.entity.js';
 
 
 @injectable()
@@ -18,9 +19,9 @@ export class RestApplication {
     const mongoUri = getMongoURI(
       this.config.get('DB_USER'),
       this.config.get('DB_PASSWORD'),
-      this.config.get('DB_HOST'),
-      this.config.get('DB_PORT'),
-      this.config.get('DB_NAME'),
+      // this.config.get('DB_HOST'),
+      // this.config.get('DB_PORT'),
+      // this.config.get('DB_NAME'),
     );
 
     return this.databaseClient.connect(mongoUri);
@@ -36,5 +37,24 @@ export class RestApplication {
     this.logger.info('Init database…');
     await this._initDb();
     this.logger.info('Init database completed');
+
+    const user = await UserModel.create({
+      name: 'ewfwefwfew',
+      email: 'test@email.ru',
+      avatar: 'keks.jpg',
+      password: '123456',
+      userType: "pro"
+    });
+    const user1 = await UserModel.create({
+      name: ' poluectov',
+      email: 'test1@email.ru',
+      avatar: 'keks1.jpg',
+      password: '123456',
+      userType: "обычный"
+    });
+
+    console.log(user);
+    console.log(user1);
+
   }
 }
