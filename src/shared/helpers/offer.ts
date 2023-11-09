@@ -16,7 +16,7 @@ export function createOffer(offerData: string): Offer {
     guests,
     price,
     facilities,
-    firstname,
+    name,
     email,
     avatar,
     password,
@@ -26,7 +26,7 @@ export function createOffer(offerData: string): Offer {
   ] = offerData.replace('\n', '').split('\t');
 
   const user = {
-    firstname,
+    name,
     email,
     avatar,
     password,
