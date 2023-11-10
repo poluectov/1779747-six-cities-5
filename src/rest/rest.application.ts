@@ -19,9 +19,9 @@ export class RestApplication {
     const mongoUri = getMongoURI(
       this.config.get('DB_USER'),
       this.config.get('DB_PASSWORD'),
-      // this.config.get('DB_HOST'),
-      // this.config.get('DB_PORT'),
-      // this.config.get('DB_NAME'),
+      this.config.get('DB_HOST'),
+      this.config.get('DB_PORT'),
+      this.config.get('DB_NAME'),
     );
 
     return this.databaseClient.connect(mongoUri);
