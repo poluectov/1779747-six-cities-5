@@ -19,9 +19,9 @@ export class RestApplication {
     const mongoUri = getMongoURI(
       this.config.get('DB_USER'),
       this.config.get('DB_PASSWORD'),
-      // this.config.get('DB_HOST'),
-      // this.config.get('DB_PORT'),
-      // this.config.get('DB_NAME'),
+      this.config.get('DB_HOST'),
+      this.config.get('DB_PORT'),
+      this.config.get('DB_NAME'),
     );
 
     return this.databaseClient.connect(mongoUri);
@@ -43,14 +43,14 @@ export class RestApplication {
       email: 'test@email.ru',
       avatar: 'keks.jpg',
       password: '123456',
-      userType: "pro"
+      userType: 'pro'
     });
     const user1 = await UserModel.create({
       name: ' poluectov',
       email: 'test1@email.ru',
       avatar: 'keks1.jpg',
       password: '123456',
-      userType: "обычный"
+      userType: 'обычный'
     });
 
     console.log(user);

@@ -37,4 +37,18 @@ export class DefaultUserService implements UserService {
 
     return this.create(dto, salt);
   }
+
+  public async login(email: string, password: string): Promise<DocumentType<UserEntity> | null> {
+    return this.userModel.findOne({ email, password });
+  }
+
+
+  public async logout(token: string) {
+    return this.userModel.findOne({ token });
+  }
+
+  public async check(token: string): Promise<DocumentType<UserEntity> | null> {
+    return this.userModel.findOne({ token });
+  }
+
 }

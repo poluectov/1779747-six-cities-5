@@ -6,4 +6,7 @@ export interface UserService {
   create(dto: CreateUserDto, salt: string): Promise<DocumentType<UserEntity>>;
   findByEmail(email: string): Promise<DocumentType<UserEntity> | null>;
   findOrCreate(dto: CreateUserDto, salt: string): Promise<DocumentType<UserEntity>>;
+  login(email: string, password: string): Promise<DocumentType<UserEntity> | null>
+  logout(token: string): void;
+  check(token: string): Promise<DocumentType<UserEntity> | null>;
 }
