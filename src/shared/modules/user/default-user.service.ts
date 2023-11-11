@@ -42,7 +42,7 @@ export class DefaultUserService implements UserService {
     return this.userModel.findOne({ email, password });
   }
 
-  
+
   public async logout(token: string) {
     return this.userModel.findOne({ token });
   }

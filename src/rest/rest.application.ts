@@ -43,14 +43,14 @@ export class RestApplication {
       email: 'test@email.ru',
       avatar: 'keks.jpg',
       password: '123456',
-      userType: "pro"
+      userType: 'pro'
     });
     const user1 = await UserModel.create({
       name: ' poluectov',
       email: 'test1@email.ru',
       avatar: 'keks1.jpg',
       password: '123456',
-      userType: "обычный"
+      userType: 'обычный'
     });
 
     console.log(user);

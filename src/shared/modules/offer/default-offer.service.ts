@@ -24,12 +24,12 @@ export class DefaultOfferService implements OfferService {
 
   public async findById(offerId: string): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel
-    .findById(offerId)
-    .exec();
+      .findById(offerId)
+      .exec();
   }
 
   public async find(): Promise<DocumentType<OfferEntity>[]> {
-      return await this.offerModel
+    return await this.offerModel
       .aggregate([
         {
           $lookup: {
@@ -65,15 +65,15 @@ export class DefaultOfferService implements OfferService {
     return this.offerModel
       .find({ city, isPremium }, {}, { limit })
       .populate([ 'userId' ])
-      .exec()
+      .exec();
   }
-  
+
   public async findFavorites(userId: string, isFavorite: boolean = true): Promise<DocumentType<OfferEntity>[]> {
-        return this.offerModel
-          .find({ userId, isFavorite })
-          .populate([ 'userId' ])
-          .exec();
-     }
+    return this.offerModel
+      .find({ userId, isFavorite })
+      .populate([ 'userId' ])
+      .exec();
+  }
 
   public async setFavoriteStatus(offerId: string, dto: UpdateOfferDto): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel
