@@ -5,7 +5,8 @@ import { Config, RestSchema } from '../shared/libs/config/index.js';
 import { Component } from '../shared/types/index.js';
 import { DatabaseClient } from '../shared/libs/database-client/index.js';
 import { getMongoURI } from '../shared/helpers/index.js';
-import { UserModel } from '../shared/modules/user/user.entity.js';
+//import { UserModel } from '../shared/modules/user/user.entity.js';
+import { Controller, ExceptionFilter } from '../shared/libs/rest/index.js';
 
 
 @injectable()
@@ -16,6 +17,8 @@ export class RestApplication {
     @inject(Component.Logger) private readonly logger: Logger,
     @inject(Component.Config) private readonly config: Config<RestSchema>,
     @inject(Component.DatabaseClient) private readonly databaseClient: DatabaseClient,
+    @inject(Component.ExceptionFilter) private readonly appExceptionFilter: ExceptionFilter,
+    @inject(Component.UserController) private readonly userController: Controller,
   ) {
     this.server = express();
   }
@@ -36,6 +39,17 @@ export class RestApplication {
     this.server.listen(port);
   }
 
+  private async _initControllers() {
+    this.server.use('/user', this.userController.router);
+  }
+
+  private async _initMiddleware() {
+    this.server.use(express.json());
+  }
+
+  private async _initExceptionFilters() {
+    this.server.use(this.appExceptionFilter.catch.bind(this.appExceptionFilter));
+  }
 
   public async init() {
     this.logger.info('Application initialization');
@@ -47,27 +61,39 @@ export class RestApplication {
     await this._initDb();
     this.logger.info('Init database completed');
 
+    this.logger.info('Init app-level middleware');
+    await this._initMiddleware();
+    this.logger.info('App-level middleware initialization completed');
+
+    this.logger.info('Init controllers');
+    await this._initControllers();
+    this.logger.info('Controller initialization completed');
+
+    this.logger.info('Init exception filters');
+    await this._initExceptionFilters();
+    this.logger.info('Exception filters initialization compleated');
+
     this.logger.info('Try to init server…');
     await this._initServer();
     this.logger.info(`🚀 Server started on http://localhost:${this.config.get('PORT')}`);
 
-    const user = await UserModel.create({
-      name: 'ewfwefwfew',
-      email: 'test@email.ru',
-      avatar: 'keks.jpg',
-      password: '123456',
-      userType: 'pro'
-    });
-    const user1 = await UserModel.create({
-      name: ' poluectov',
-      email: 'test1@email.ru',
-      avatar: 'keks1.jpg',
-      password: '123456',
-      userType: 'обычный'
-    });
+    // const user = await UserModel.create({
+    //   name: 'ewfwefwfew',
+    //   email: 'test@email.ru',
+    //   avatar: 'keks.jpg',
+    //   password: '123456',
+    //   userType: 'pro'
+    // });
+    // const user1 = await UserModel.create({
+    //   name: ' poluectov',
+    //   email: 'test1@email.ru',
+    //   avatar: 'keks1.jpg',
+    //   password: '123456',
+    //   userType: 'обычный'
+    // });
 
-    console.log(user);
-    console.log(user1);
+    // console.log(user);
+    // console.log(user1);
 
   }
 }
