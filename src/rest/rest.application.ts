@@ -34,6 +34,7 @@ export class RestApplication {
 
     return this.databaseClient.connect(mongoUri);
   }
+
   private async _initServer() {
     const port = this.config.get('PORT');
     this.server.listen(port);
