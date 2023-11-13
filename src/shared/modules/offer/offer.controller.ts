@@ -7,16 +7,16 @@ import { OfferService } from './offer-service.interface.js';
 import { fillDTO } from '../../helpers/index.js';
 import { OfferRdo } from './rdo/offer.rdo.js';
 import { CreateOfferRequest } from './create-offer-request-type.js';
-import { CommentService } from '../comment/index.js';
+// import { CommentService } from '../comment/index.js';
 import { ParamOfferId } from './type/param-offerid.type.js';
 import { UpdateOfferDto } from './dto/update-offer.dto.js';
 
 @injectable()
-export class UserController extends BaseController {
+export class OfferController extends BaseController {
   constructor(
     @inject(Component.Logger) protected readonly logger: Logger,
     @inject(Component.OfferService) private readonly offerService: OfferService,
-    @inject(Component.CommentService) private readonly commentService: CommentService
+    // @inject(Component.CommentService) private readonly commentService: CommentService
   ) {
     super(logger);
     this.logger.info('Register routes for OfferController…');
@@ -24,7 +24,7 @@ export class UserController extends BaseController {
     this.addRoute({ path: '/', method: HttpMethod.Get, handler: this.index });
     this.addRoute({path: '/:offerId', method: HttpMethod.Get, handler: this.findById });
     this.addRoute({ path: '/', method: HttpMethod.Post, handler: this.create });
-    this.addRoute({ path: '/:offerId', method: HttpMethod.Delete, handler: this.delete });
+    // this.addRoute({ path: '/:offerId', method: HttpMethod.Delete, handler: this.delete });
     this.addRoute({ path: '/:offerId', method: HttpMethod.Patch, handler: this.update });
   }
 
@@ -47,18 +47,16 @@ export class UserController extends BaseController {
     this.ok(res, responseData);
   }
 
-  public async delete({ params }: Request<ParamOfferId>, res: Response): Promise<void> {
-    const { offerId } = params;
-    const offer = await this.offerService.deleteById(offerId);
+  // public async delete({ params }: Request<ParamOfferId>, res: Response): Promise<void> {
+  //   const { offerId } = params;
+  //   const offer = await this.offerService.deleteById(offerId);
 
-    await this.commentService.deleteByOfferId(offerId);
-    this.noContent(res, offer);
-  }
+  //   await this.commentService.deleteByOfferId(offerId);
+  //   this.noContent(res, offer);
+  // }
 
   public async update({ body, params }: Request<ParamOfferId, unknown, UpdateOfferDto>, res: Response): Promise<void> {
     const updatedOffer = await this.offerService.updateById(params.offerId, body);
     this.ok(res, fillDTO(OfferRdo, updatedOffer));
   }
-
-
 }
