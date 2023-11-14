@@ -20,7 +20,7 @@ export const UpdateOfferMessage = {
     invalidFormat: 'Field images must be an array',
     ArraySize: 'Field images must contain 6 pictures',
   },
-  
+
   isPremium: {
     IsBoolean: 'Field isPremium must be a boolean',
   },

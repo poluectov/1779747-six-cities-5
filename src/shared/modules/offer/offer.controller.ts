@@ -101,5 +101,5 @@ export class OfferController extends BaseController {
     this.ok(res, fillDTO(CommentRdo, comments));
   }
 
-  
+
 }

@@ -10,7 +10,7 @@ export const CreateUserMessages = {
   avatar: {
     invalidFormat: 'avatarPath is required',
   },
-  
+
   password: {
     invalidFormat: 'password is required',
     lengthField: 'min length for password is 6, max is 12'

@@ -63,7 +63,7 @@ export class CreateOfferDto {
   @Max(100000, { message: CreateOfferMessage.price.maxValue })
   public price: number;
 
- 
+
   @IsArray({ message: CreateOfferMessage.facilities.invalidFormat })
   @ArrayMinSize(1, { message: CreateOfferMessage.facilities.ArrayMinSize })
   @ArrayMaxSize(7, { message: CreateOfferMessage.facilities.ArrayMaxSize })
