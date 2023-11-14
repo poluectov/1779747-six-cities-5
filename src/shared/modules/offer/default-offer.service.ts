@@ -8,6 +8,7 @@ import { CreateOfferDto } from './dto/create-offer.dto.js';
 import { UpdateOfferDto } from './dto/update-offer.dto.js';
 import { DEFAULT_OFFER_COUNT, DEFAULT_PREMIUM_COUNT } from './offer.constant.js';
 
+
 @injectable()
 export class DefaultOfferService implements OfferService {
   constructor(
