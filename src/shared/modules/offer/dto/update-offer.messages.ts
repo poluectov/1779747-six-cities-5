@@ -12,6 +12,10 @@ export const UpdateOfferMessage = {
     invalidFormat: 'postDate must be a valid ISO date',
   },
 
+  city: {
+    invalidFormat: 'city must be Paris or Cologne or Brussels or Amsterdam or Hamburg or Dusseldorf',
+  },
+
   previewPhoto: {
     maxLength: 'Too long for field «image»',
     invalidFormat: 'Field image must be an array',
@@ -39,6 +43,11 @@ export const UpdateOfferMessage = {
     minValue: 'Minimum price is 100',
     maxValue: 'Maximum price is 100000',
   },
+
+  type: {
+    invalidFormat: 'type must be "pro" or "обычный"',
+  },
+
   rooms: {
     invalidFormat: 'Bedrooms must be an integer',
     minValue: 'Minimum bedrooms is 1',

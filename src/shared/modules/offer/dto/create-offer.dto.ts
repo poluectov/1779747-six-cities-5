@@ -19,7 +19,7 @@ export class CreateOfferDto {
   public postDate: Date;
 
   @IsObject()
-  @ValidateNested()
+  @ValidateNested({ message: CreateOfferMessage.city.invalidFormat })
   @Type(() => String)
   public city: CityType;
 
@@ -44,7 +44,7 @@ export class CreateOfferDto {
   public rating: number;
 
   @IsObject()
-  @ValidateNested()
+  @ValidateNested({ message: CreateOfferMessage.type.invalidFormat })
   @Type(() => String)
   public type: OfferType;
 
@@ -70,7 +70,7 @@ export class CreateOfferDto {
   @IsObject()
   @ValidateNested()
   @Type(() => String)
-  public facilities?: FacilitiesType[];
+  public facilities: FacilitiesType[];
 
   @IsMongoId({ message: CreateOfferMessage.userId.invalidId })
   public userId: string;
