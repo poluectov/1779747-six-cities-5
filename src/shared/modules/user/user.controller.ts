@@ -75,7 +75,7 @@ export class UserController extends BaseController {
     _res: Response,
   ): Promise<void> {
     const existsUser = await this.userService.findByEmail(body.email);
-    
+
 
     if (! existsUser) {
 

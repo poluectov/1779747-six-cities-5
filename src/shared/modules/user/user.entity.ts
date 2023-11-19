@@ -22,9 +22,9 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   @prop({ required: false, default: '' })
   public avatar: string;
 
-  @prop({ 
-    required: true, 
-    default: '', 
+  @prop({
+    required: true,
+    default: '',
     type: () => String, enum: UserType })
   public userType: UserType;
 
