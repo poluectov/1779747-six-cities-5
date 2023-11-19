@@ -2,7 +2,7 @@ import { CityType, OfferType, FacilitiesType } from '../../../types/index.js';
 import { CreateOfferMessage } from './create-offer.messages .js';
 import {
   IsEnum, IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
-  IsBoolean, IsInt, Min, Max, IsMongoId,
+  IsBoolean, IsInt, Min, Max,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -67,7 +67,6 @@ export class CreateOfferDto {
   @Type(() => String)
   public facilities: FacilitiesType[];
 
-  @IsMongoId({ message: CreateOfferMessage.userId.invalidId })
   public userId: string;
 
   public comments: number;

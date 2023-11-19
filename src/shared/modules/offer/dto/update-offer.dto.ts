@@ -23,7 +23,7 @@ export class UpdateOfferDto {
 
   @IsOptional()
   @IsObject()
-  @IsEnum({ message: UpdateOfferMessage.city.invalidFormat })
+  @IsEnum({ CityType, message: UpdateOfferMessage.city.invalidFormat })
   public city: CityType;
 
 
@@ -54,7 +54,7 @@ export class UpdateOfferDto {
 
   @IsOptional()
   @IsObject()
-  @IsEnum({ message: UpdateOfferMessage.type.invalidFormat })
+  @IsEnum({ OfferType, message: UpdateOfferMessage.type.invalidFormat })
   public type: OfferType;
 
   @IsOptional()
@@ -76,11 +76,10 @@ export class UpdateOfferDto {
   public price: number;
 
 
-  @IsOptional()
-  @IsArray({ message: UpdateOfferMessage.facilities.invalidFormat })
   @ArrayMinSize(1, { message: UpdateOfferMessage.facilities.ArrayMinSize })
   @ArrayMaxSize(7, { message: UpdateOfferMessage.facilities.ArrayMaxSize })
-  @IsEnum({ message: UpdateOfferMessage.facilities.invalidFormat })
+  @IsEnum(FacilitiesType, {each: true, message: UpdateOfferMessage.facilities.invalidFormat })
+  @Type(() => String)
   public facilities: FacilitiesType[];
 
   @IsOptional()
