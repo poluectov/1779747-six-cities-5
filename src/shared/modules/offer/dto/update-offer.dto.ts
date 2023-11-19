@@ -1,7 +1,7 @@
 import { CityType, OfferType, FacilitiesType } from '../../../types/index.js';
 import { UpdateOfferMessage } from './update-offer.messages.js';
 import {
-  IsOptional, IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
+  IsEnum, IsOptional, IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
   IsBoolean, IsInt, Min, Max, IsObject, ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -23,9 +23,9 @@ export class UpdateOfferDto {
 
   @IsOptional()
   @IsObject()
-  @ValidateNested({ message: UpdateOfferMessage.city.invalidFormat })
-  @Type(() => String)
+  @IsEnum({ message: UpdateOfferMessage.city.invalidFormat })
   public city: CityType;
+
 
   @IsOptional()
   @MaxLength(256, { message: UpdateOfferMessage.previewPhoto.maxLength })
@@ -54,8 +54,7 @@ export class UpdateOfferDto {
 
   @IsOptional()
   @IsObject()
-  @ValidateNested({ message: UpdateOfferMessage.type.invalidFormat })
-  @Type(() => String)
+  @IsEnum({ message: UpdateOfferMessage.type.invalidFormat })
   public type: OfferType;
 
   @IsOptional()
@@ -81,10 +80,8 @@ export class UpdateOfferDto {
   @IsArray({ message: UpdateOfferMessage.facilities.invalidFormat })
   @ArrayMinSize(1, { message: UpdateOfferMessage.facilities.ArrayMinSize })
   @ArrayMaxSize(7, { message: UpdateOfferMessage.facilities.ArrayMaxSize })
-  @IsObject()
-  @ValidateNested()
-  @Type(() => String)
-  public facilities?: FacilitiesType[];
+  @IsEnum({ message: UpdateOfferMessage.facilities.invalidFormat })
+  public facilities: FacilitiesType[];
 
   @IsOptional()
   @IsObject()

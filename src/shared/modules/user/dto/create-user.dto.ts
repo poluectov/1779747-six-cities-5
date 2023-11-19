@@ -1,6 +1,6 @@
-import { IsBoolean, IsEmail, IsString, Length } from 'class-validator';
+import { IsEnum, IsString, Length, IsEmail } from 'class-validator';
 import { CreateUserMessages } from './create-user.messages.js';
-import { UserType } from '../../../types/user-type.js';
+import { UserType } from '../../../types/user-type.enum.js';
 
 export class CreateUserDto {
 
@@ -14,10 +14,10 @@ export class CreateUserDto {
   @IsString({ message: CreateUserMessages.avatar.invalidFormat })
   public avatar: string;
 
+  @IsEnum(UserType, { message: CreateUserMessages.userType.invalid })
+  public userType: UserType;
+
   @IsString({ message: CreateUserMessages.password.invalidFormat })
   @Length(6, 12, { message: CreateUserMessages.password.lengthField })
   public password: string;
-
-  @IsBoolean({ message: CreateUserMessages.userType.invalid })
-  public userType: UserType;
 }
