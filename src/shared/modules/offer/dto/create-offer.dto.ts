@@ -1,10 +1,11 @@
 import { CityType, OfferType, FacilitiesType } from '../../../types/index.js';
 import { CreateOfferMessage } from './create-offer.messages .js';
 import {
-  IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
-  IsBoolean, IsInt, Min, Max, IsObject, IsMongoId, ValidateNested,
+  IsEnum, IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
+  IsBoolean, IsInt, Min, Max, IsMongoId,
 } from 'class-validator';
 import { Type } from 'class-transformer';
+
 
 export class CreateOfferDto {
   @MinLength(10, { message: CreateOfferMessage.title.minLength })
@@ -18,9 +19,7 @@ export class CreateOfferDto {
   @IsDateString({}, { message: CreateOfferMessage.postDate.invalidFormat })
   public postDate: Date;
 
-  @IsObject()
-  @ValidateNested({ message: CreateOfferMessage.city.invalidFormat })
-  @Type(() => String)
+  @IsEnum(CityType, { message: CreateOfferMessage.city.invalidFormat })
   public city: CityType;
 
   @MaxLength(256, { message: CreateOfferMessage.previewPhoto.maxLength })
@@ -43,9 +42,7 @@ export class CreateOfferDto {
   @Max(5, { message: CreateOfferMessage.rating.maxValue })
   public rating: number;
 
-  @IsObject()
-  @ValidateNested({ message: CreateOfferMessage.type.invalidFormat })
-  @Type(() => String)
+  @IsEnum(OfferType, { message: CreateOfferMessage.type.invalidFormat })
   public type: OfferType;
 
   @IsInt({ message: CreateOfferMessage.rooms.invalidFormat })
@@ -64,19 +61,17 @@ export class CreateOfferDto {
   public price: number;
 
 
-  @IsArray({ message: CreateOfferMessage.facilities.invalidFormat })
   @ArrayMinSize(1, { message: CreateOfferMessage.facilities.ArrayMinSize })
   @ArrayMaxSize(7, { message: CreateOfferMessage.facilities.ArrayMaxSize })
-  @IsObject()
-  @ValidateNested()
+  @IsEnum(FacilitiesType, {each: true, message: CreateOfferMessage.facilities.invalidFormat })
   @Type(() => String)
   public facilities: FacilitiesType[];
 
   @IsMongoId({ message: CreateOfferMessage.userId.invalidId })
   public userId: string;
 
-  @IsObject()
-  @ValidateNested()
+  public comments: number;
+
   @Type(() => String)
   public coordinates: string[];
 }

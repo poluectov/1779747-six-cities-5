@@ -8,8 +8,8 @@ Content-Type: application/json
   "name": "Jack Torrance",
   "email": "torans@overlook.net",
   "avatar": "torrance.png",
-  "password": "shining",
-  "userType": "pro"
+  "userType": "pro",
+  "password": "shining"
 }
 
 ###
@@ -21,7 +21,17 @@ Content-Type: application/json
 
 {
   "email": "torans@overlook.net",
-  "password": "shining"
+  "password": "260ad7c41e14fa667fe9215b91b6ef6f42dd44efdaf7f41972967a2c9cca98d3"
+}
+
+###
+
+POST http://localhost:31337/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "tom@gmail.com",
+  "password": "4a83854cf6f0112b4295bddd535a9b3fbe54a3f90e853b59d42e4bed553c55a4"
 }
 
 ###

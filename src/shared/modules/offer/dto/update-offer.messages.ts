@@ -60,7 +60,7 @@ export const UpdateOfferMessage = {
   },
 
   facilities: {
-    invalidFormat: 'Field facilities must be an array',
+    invalidFormat: 'Field facilities must be one or more options from the list: Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge',
     ArrayMinSize: 'Field facilities must contain at least 1 facilitie',
     ArrayMaxSize: 'Field facilities must contain no more 7 facilities',
   }
