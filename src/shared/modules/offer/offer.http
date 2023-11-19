@@ -1,7 +1,5 @@
 # Получить объявление по идентификатору
-GET http://localhost:31337/offers/6552423c1db706a4bb6e8c3f HTTP/1.1
-###
-GET http://localhost:31337/offers/6553916d865cddf494703608 HTTP/1.1
+GET http://localhost:31337/offers/65592fb6e1465c0beb5da8d0 HTTP/1.1
 ###
 
 ## Получить список объявлений
@@ -28,16 +26,16 @@ Content-Type: application/json
   "rooms": 5,
   "guests": 5,
   "price": 50000,
-  "facilities": ["Breakfast", "Air conditioning, Towels"],
-  "coordinates": [50.846557, 4.351697],
-  "userId": "6552423c1db706a4bb6e8c3d"
+  "facilities": ["Breakfast", "Air conditioning", "Towels"],
+  "coordinates": ["50.846557", "4.351697"],
+  "userId": "6559db5dfbf2ef7cf41fe177"
 }
 
 ###
 
 ## Удалить объявление по идентификатору
 
-DELETE http://localhost:31337/offers/6553916d865cddf494703608 HTTP/1.1
+DELETE http://localhost:31337/offers/65567c4417ca787261f50193 HTTP/1.1
 
 ###
 
