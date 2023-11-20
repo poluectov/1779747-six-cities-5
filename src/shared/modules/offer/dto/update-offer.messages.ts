@@ -1,5 +1,5 @@
 
-export const UpdateOfferMessage = {
+export const UPDATE_OFFER_MESSAGES = {
   title: {
     minLength: 'Minimum title length must be 10',
     maxLength: 'Maximum title length must be 100',
@@ -27,9 +27,6 @@ export const UpdateOfferMessage = {
 
   isPremium: {
     IsBoolean: 'Field isPremium must be a boolean',
-  },
-  isFavorite: {
-    IsBoolean: 'Field isFavorite must be a boolean',
   },
 
   rating: {

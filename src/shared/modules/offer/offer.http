@@ -20,7 +20,7 @@ Content-Type: application/json
   "previewPhoto": "previewPhoto_Создать_новое_объявление.jpg",
   "photos": ["photos_Создать_новое_объявление_1.jpg", "photos_Создать_новое_объявление_2.jpg", "photos_Создать_новое_объявление_3.jpg", "photos_Создать_новое_объявление_4.jpg", "photos_Создать_новое_объявление_5.jpg", "photos_Создать_новое_объявление_6.jpg"],
   "isPremium": false,
-  "isFavorite": false,
+  //"isFavorite": false,
   "rating": 1,
   "type": "apartment",
   "rooms": 5,
