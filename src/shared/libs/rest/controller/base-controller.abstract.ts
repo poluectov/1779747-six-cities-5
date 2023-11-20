@@ -10,16 +10,16 @@ const DEFAULT_CONTENT_TYPE = 'application/json';
 
 @injectable()
 export abstract class BaseController implements Controller {
-  private readonly _router: Router;
+  private readonly innerrRuter: Router;
 
   constructor(
     protected readonly logger: Logger
   ) {
-    this._router = Router();
+    this.innerrRuter = Router();
   }
 
   get router() {
-    return this._router;
+    return this.innerrRuter;
   }
 
   public addRoute(route: Route) {
@@ -29,7 +29,7 @@ export abstract class BaseController implements Controller {
     );
     const allHandlers = middlewareHandlers ? [...middlewareHandlers, wrapperAsyncHandler] : wrapperAsyncHandler;
 
-    this._router[route.method](route.path, allHandlers);
+    this.innerrRuter[route.method](route.path, allHandlers);
     this.logger.info(`Route registered: ${route.method.toUpperCase()} ${route.path}`);
   }
 

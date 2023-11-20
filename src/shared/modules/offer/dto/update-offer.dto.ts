@@ -1,5 +1,5 @@
 import { CityType, OfferType, FacilitiesType } from '../../../types/index.js';
-import { UpdateOfferMessage } from './update-offer.messages.js';
+import { UPDATE_OFFER_MESSAGES } from './update-offer.messages.js';
 import {
   IsEnum, IsOptional, IsArray, IsDateString, MaxLength, MinLength, ArrayMinSize, ArrayMaxSize,
   IsBoolean, IsInt, Min, Max, IsObject, ValidateNested,
@@ -8,79 +8,75 @@ import { Type } from 'class-transformer';
 
 export class UpdateOfferDto {
   @IsOptional()
-  @MinLength(10, { message: UpdateOfferMessage.title.minLength })
-  @MaxLength(100, { message: UpdateOfferMessage.title.maxLength })
+  @MinLength(10, { message: UPDATE_OFFER_MESSAGES.title.minLength })
+  @MaxLength(100, { message: UPDATE_OFFER_MESSAGES.title.maxLength })
   public title: string;
 
   @IsOptional()
-  @MinLength(20, { message: UpdateOfferMessage.description.minLength })
-  @MaxLength(1024, { message: UpdateOfferMessage.description.maxLength })
+  @MinLength(20, { message: UPDATE_OFFER_MESSAGES.description.minLength })
+  @MaxLength(1024, { message: UPDATE_OFFER_MESSAGES.description.maxLength })
   public description: string;
 
   @IsOptional()
-  @IsDateString({}, { message: UpdateOfferMessage.postDate.invalidFormat })
+  @IsDateString({}, { message: UPDATE_OFFER_MESSAGES.postDate.invalidFormat })
   public postDate: Date;
 
   @IsOptional()
   @IsObject()
-  @IsEnum({ message: UpdateOfferMessage.city.invalidFormat })
+  @IsEnum({ CityType, message: UPDATE_OFFER_MESSAGES.city.invalidFormat })
   public city: CityType;
 
 
   @IsOptional()
-  @MaxLength(256, { message: UpdateOfferMessage.previewPhoto.maxLength })
+  @MaxLength(256, { message: UPDATE_OFFER_MESSAGES.previewPhoto.maxLength })
   public previewPhoto: string;
 
   @IsOptional()
-  @IsArray({ message: UpdateOfferMessage.photos.invalidFormat })
-  @ArrayMinSize(6, { message: UpdateOfferMessage.photos.ArraySize })
-  @ArrayMaxSize(6, { message: UpdateOfferMessage.photos.ArraySize })
-  @MaxLength(256, { each: true, message: UpdateOfferMessage.previewPhoto.maxLength })
+  @IsArray({ message: UPDATE_OFFER_MESSAGES.photos.invalidFormat })
+  @ArrayMinSize(6, { message: UPDATE_OFFER_MESSAGES.photos.ArraySize })
+  @ArrayMaxSize(6, { message: UPDATE_OFFER_MESSAGES.photos.ArraySize })
+  @MaxLength(256, { each: true, message: UPDATE_OFFER_MESSAGES.previewPhoto.maxLength })
   public photos: string[];
 
   @IsOptional()
-  @IsBoolean({ message: UpdateOfferMessage.isPremium.IsBoolean })
+  @IsBoolean({ message: UPDATE_OFFER_MESSAGES.isPremium.IsBoolean })
   public isPremium: boolean;
 
-  @IsOptional()
-  @IsBoolean({ message: UpdateOfferMessage.isFavorite.IsBoolean })
-  public isFavorite: boolean;
 
   @IsOptional()
-  @IsInt({ message: UpdateOfferMessage.rating.invalidFormat })
-  @Min(1, { message: UpdateOfferMessage.rating.minValue })
-  @Max(5, { message: UpdateOfferMessage.rating.maxValue })
+  @IsInt({ message: UPDATE_OFFER_MESSAGES.rating.invalidFormat })
+  @Min(1, { message: UPDATE_OFFER_MESSAGES.rating.minValue })
+  @Max(5, { message: UPDATE_OFFER_MESSAGES.rating.maxValue })
   public rating: number;
 
   @IsOptional()
   @IsObject()
-  @IsEnum({ message: UpdateOfferMessage.type.invalidFormat })
+  @IsEnum({ OfferType, message: UPDATE_OFFER_MESSAGES.type.invalidFormat })
   public type: OfferType;
 
   @IsOptional()
-  @IsInt({ message: UpdateOfferMessage.rooms.invalidFormat })
-  @Min(1, { message: UpdateOfferMessage.rooms.minValue })
-  @Max(8, { message: UpdateOfferMessage.rooms.maxValue })
+  @IsInt({ message: UPDATE_OFFER_MESSAGES.rooms.invalidFormat })
+  @Min(1, { message: UPDATE_OFFER_MESSAGES.rooms.minValue })
+  @Max(8, { message: UPDATE_OFFER_MESSAGES.rooms.maxValue })
   public rooms: number;
 
   @IsOptional()
-  @IsInt({ message: UpdateOfferMessage.guests.invalidFormat })
-  @Min(1, { message: UpdateOfferMessage.guests.minValue })
-  @Max(10, { message: UpdateOfferMessage.guests.maxValue })
+  @IsInt({ message: UPDATE_OFFER_MESSAGES.guests.invalidFormat })
+  @Min(1, { message: UPDATE_OFFER_MESSAGES.guests.minValue })
+  @Max(10, { message: UPDATE_OFFER_MESSAGES.guests.maxValue })
   public guests: number;
 
   @IsOptional()
-  @IsInt({ message: UpdateOfferMessage.price.invalidFormat })
-  @Min(100, { message: UpdateOfferMessage.price.minValue })
-  @Max(100000, { message: UpdateOfferMessage.price.maxValue })
+  @IsInt({ message: UPDATE_OFFER_MESSAGES.price.invalidFormat })
+  @Min(100, { message: UPDATE_OFFER_MESSAGES.price.minValue })
+  @Max(100000, { message: UPDATE_OFFER_MESSAGES.price.maxValue })
   public price: number;
 
 
-  @IsOptional()
-  @IsArray({ message: UpdateOfferMessage.facilities.invalidFormat })
-  @ArrayMinSize(1, { message: UpdateOfferMessage.facilities.ArrayMinSize })
-  @ArrayMaxSize(7, { message: UpdateOfferMessage.facilities.ArrayMaxSize })
-  @IsEnum({ message: UpdateOfferMessage.facilities.invalidFormat })
+  @ArrayMinSize(1, { message: UPDATE_OFFER_MESSAGES.facilities.ArrayMinSize })
+  @ArrayMaxSize(7, { message: UPDATE_OFFER_MESSAGES.facilities.ArrayMaxSize })
+  @IsEnum(FacilitiesType, {each: true, message: UPDATE_OFFER_MESSAGES.facilities.invalidFormat })
+  @Type(() => String)
   public facilities: FacilitiesType[];
 
   @IsOptional()
